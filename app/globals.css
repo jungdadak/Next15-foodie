@@ -1,0 +1,27 @@
+/* Google Fonts Import */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Montserrat:wght@400;700&display=swap");
+
+/* globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 글로벌 스타일 */
+* {
+	box-sizing: border-box;
+}
+
+html {
+	@apply font-quicksand;
+}
+
+body {
+	@apply m-0 bg-gradient-radial from-[#282c34] to-[#282c34];
+}
+
+/* Radial Gradient는 Tailwind 기본으로 지원하지 않으므로 커스텀으로 추가 */
+@layer utilities {
+	.bg-gradient-radial {
+		background: radial-gradient(var(--tw-gradient-stops));
+	}
+}
