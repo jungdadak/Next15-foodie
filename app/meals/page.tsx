@@ -2,7 +2,7 @@ import MealsGrid from '@/components/meals/meals-grid';
 import Link from 'next/link';
 import { Meal } from '@/components/meals/meals-items';
 
-export default function MealsPage(): JSX.Element {
+export default function MealsPage() {
   // TODO: Replace with actual data fetching
   const meals: Meal[] = [];
   return (
