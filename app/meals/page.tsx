@@ -1,45 +1,32 @@
-// app/meals/page.jsx 또는 pages/meals.jsx
+import MealsGrid from '@/components/meals/meals-grid';
+import Link from 'next/link';
+import { Meal } from '@/components/meals/meals-items';
 
-import Link from "next/link";
-
-export default function MealPage() {
-	return (
-		<main className="min-h-screen flex flex-col items-center justify-center px-4 bg-transparent">
-			<h1 className="text-4xl md:text-5xl font-montserrat text-white mb-12">
-				Meals
-			</h1>
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-				<Link
-					href="/meals/meal-1"
-					className="flex items-center justify-center p-6 bg-gradient-to-r from-orange-500 to-yellow-400 text-white rounded-lg shadow-lg hover:from-orange-600 hover:to-yellow-500 transition-colors duration-300 no-underline font-medium text-center"
-				>
-					Meal 1
-				</Link>
-				<Link
-					href="/meals/meal-2"
-					className="flex items-center justify-center p-6 bg-gradient-to-r from-orange-500 to-yellow-400 text-white rounded-lg shadow-lg hover:from-orange-600 hover:to-yellow-500 transition-colors duration-300 no-underline font-medium text-center"
-				>
-					Meal 2
-				</Link>
-				<Link
-					href="/meals/meal-3"
-					className="flex items-center justify-center p-6 bg-gradient-to-r from-orange-500 to-yellow-400 text-white rounded-lg shadow-lg hover:from-orange-600 hover:to-yellow-500 transition-colors duration-300 no-underline font-medium text-center"
-				>
-					Meal 3
-				</Link>
-				<Link
-					href="/meals/share"
-					className="flex items-center justify-center p-6 bg-gradient-to-r from-green-500 to-teal-400 text-white rounded-lg shadow-lg hover:from-green-600 hover:to-teal-500 transition-colors duration-300 no-underline font-medium text-center col-span-1 sm:col-span-2 md:col-span-3"
-				>
-					Share Page
-				</Link>
-				<Link
-					href="/community"
-					className="flex items-center justify-center p-6 bg-gradient-to-r from-green-500 to-teal-400 text-white rounded-lg shadow-lg hover:from-green-600 hover:to-teal-500 transition-colors duration-300 no-underline font-medium text-center col-span-1 sm:col-span-2 md:col-span-3"
-				>
-					community
-				</Link>
-			</div>
-		</main>
-	);
+export default function MealsPage(): JSX.Element {
+  // TODO: Replace with actual data fetching
+  const meals: Meal[] = [];
+  return (
+    <>
+      <header className="flex flex-col items-center gap-4 p-8 text-center">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
+          Delicious meals, created{' '}
+          <span className="text-orange-300">by you</span>
+        </h1>
+        <p className="text-xl text-gray-200">
+          Choose your favorite recipe and cook it yourself. It is easy and fun!
+        </p>
+        <p className="mt-4">
+          <Link
+            href="/meals/share"
+            className="inline-block px-6 py-3 rounded-lg bg-gradient-to-r from-[#f9572a] to-[#ff9b05] text-white font-bold no-underline hover:from-[#fd4715] hover:to-[#f9b241] hover:shadow-[0_0_12px_rgba(242,100,18,0.8)] transition-all duration-300"
+          >
+            Share Your Favorite Recipe
+          </Link>
+        </p>
+      </header>
+      <main className="w-full max-w-7xl mx-auto px-4">
+        <MealsGrid meals={meals} />
+      </main>
+    </>
+  );
 }
